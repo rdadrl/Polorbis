@@ -1,0 +1,542 @@
+body {	
+	background: rgb(30,30,30);
+	font-family: 'Eagle Lake', cursive;
+
+	padding: 0;
+	margin: 0;
+}
+
+textarea:focus,
+input:focus { outline: rgba(0,0,0,0); } /* Remove outline when an input bar is in focus */
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/* - - Color Stuff - - */
+.sys { color: darkviolet !important; }
+.btl { color: rgb(180, 100,100) !important; }
+.cht { color: rgb(110,110,110) !important; }
+.usr { color: gold !important; }
+/* - End Color Stuff - */
+
+.white-t-shadow { text-shadow: 2px 0px 4px rgba(255,255,255,0.5); }
+.pbar {	width: 250px; height: 8px; }
+/* Header and Navbar */
+	#header {
+		position: fixed;
+		height: 60px;
+		width: 100%;
+		background: rgb(20,20,20);
+		border-bottom: 1px solid rgb(17,17,17);
+		
+		z-index: 10;
+	}
+
+	.logo {
+		display: inline-block;
+		margin-top: -5px;
+		color: gold;
+		margin-left: 10px;
+		font-family: 'MedievalSharp', cursive;
+	}
+/* End Header and Navbar */
+
+/* Left Bar */
+	/* Character */
+		#character {
+			position: absolute;
+			margin-left: 20px;
+			top: 80px;
+
+			background: rgb(20,20,20);
+
+			border: 1px solid gold;
+			border-radius: 2px;
+			height: 300px;
+			width: 400px;
+		}
+		#character .picture {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			border: 2px solid gold;
+			border-radius: 2px;
+			left: 10px;
+			top: 10px;
+		}
+		#character .settings {
+			position: absolute;
+			right: 5px;
+			top: 3px;
+			color: rgb(90,90,90);
+		}
+		#character .info {
+			position: absolute;
+			width: 260px;
+			height: 100px;
+			left: 130px;
+			margin-top: 10px;
+			color: white;
+			font-size: 12px;
+		}
+		#character .info .usr { font-size: 24px; color: gold; }
+		#character .info i { font-size: 9px; }
+
+		#character .hptext {
+			position: absolute;
+			top: 125px;
+			left: 10px;
+			color: rgb(150,40,40);
+			font-size:12px;
+		}
+		#character #hpbar {
+			position: absolute;
+			top: 120px;
+			right: 10px;
+		}
+	/* End Character */
+	#info-bar {
+		position: absolute;
+		margin-left: 20px;
+		top: 400px;
+
+		background: rgb(20,20,20);
+
+		border: 1px solid gold;
+		border-radius: 2px;
+		height: calc(100% - 420px);
+		width: 400px;
+		text-align: center;
+	}
+	#info-bar button {
+		cursor: pointer;
+		background: rgb(80,80,80);
+		border: 2px solid gold;
+		font-family: "Eagle Lake", cursive;
+		border-radius: 0.5px;
+		color: gold;
+	}
+	#info-bar form {
+		display: inline;
+	}
+/* End Left Bar */
+
+/* Right Bar */
+	/* Tabbed Screen */
+		#tabs {
+			position: absolute;
+			right: 20px;
+			top: 80px;
+			padding: 0;
+			overflow: visible;
+
+			background: rgb(20,20,20);
+
+			border: 1px solid gold;
+			border-bottom-color: rgb(70,70,70);
+			border-radius: 2px;
+			height: 35px;
+			width: calc(100% - 460px);
+		}
+		#tabs button {
+			font-family: "Eagle Lake", cursive;
+			color: white;
+			display: inline-block;
+			border : none;
+			height: 100%;
+			width: auto;
+			font-size: 20px;
+			text-shadow: 2px 0px 4px rgba(255,255,255,0.5);
+			background: none;
+		}
+
+		#tabs button:hover {
+		    color: rgba(255,215,0,0.8);
+		}
+
+		#tabs button.active {
+		    color: gold;
+		}
+
+		.tab {
+			display: none;
+			position: absolute;
+			right: 20px;
+			top: 115px;
+			padding: 0;
+			overflow: visible;
+			color: white;
+			background: rgb(20,20,20);
+
+			border: 1px solid gold;
+			border-top: 1px solid rgb(70,70,70);
+			border-radius: 2px;
+			height: 265px;
+			width: calc(100% - 460px);
+			-webkit-animation: fadeEffect 0.4s;
+    		animation: fadeEffect 0.4s; /* Fading effect takes 1 second */
+			}
+
+			@-webkit-keyframes fadeEffect {
+			    from {opacity: 0;}
+			    to {opacity: 1;}
+			}
+	/* End Tabbed Screen */
+
+	/* Chat */
+		#chat {
+			position: absolute;
+			right: 20px;
+			top: 400px;
+			background: rgb(20,20,20);
+			border: 1px solid gold;
+			border-bottom: none;
+			border-radius: 2px;
+
+			width: calc(100% - 460px);
+			height: calc(100% - 440px);
+
+			font-size: 0;
+		}
+		#chat .channel {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 15%;
+			color: #ccc;
+			border-right: 1px dashed rgb(70,70,70);
+			font-size: 13px;
+		}
+		#chat .channel h1 {
+			font-size: 13px;
+			line-height: 14px;
+			text-align: center;
+			width: 100%;
+			border-bottom: 1px dashed rgb(70,70,70);
+		}
+		#chat .channel button {
+			position: relative;
+			font-family: "Eagle Lake", cursive;
+			display: inline-block;
+			font-size: 12px;
+			background: rgb(70,70,70);
+			color: gold;
+			border: 1px solid gold;
+			border-radius: 2px;
+			width: 94%;
+			margin-left: 3%;
+			margin-top: 4px;
+			text-align: center;
+			cursor: pointer;
+		}
+		#chat-enter {
+			position: absolute;
+			right: 20px;
+			top: calc(100% - 40px);
+			height: 20px;
+			width: calc(100% - 460px);
+			border: 1px solid gold;
+			border-radius: 2px;
+			border-top-color: rgb(70,70,70);
+		}
+		#chat-enter input {
+			display: block;
+			height: calc(100% - 2px);
+			width: calc(100% - 2px);
+			top: 0;
+			left: 0;
+			background: rgb(30,30,30);
+			color: white;
+			border: none;
+		}
+		#chat .container {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			right: 0;
+			
+			overflow-y: scroll;
+			max-width: 100%;
+			overflow-x: hidden;
+
+		}
+
+		#chat .container::-webkit-scrollbar-track {
+			border-radius: 10px;
+		  	margin:7px 0;
+			background-color: rgba(27, 30, 50, 0.9);
+		}
+
+		#chat .container::-webkit-scrollbar {
+			width: 10px;
+			background-color: transparent;
+		}
+
+		#chat .container::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background-color: rgba(27, 30, 50, 0.8);
+		}
+
+		#chat .line {
+			max-width: 100%;
+			position: relative;
+			color: white;
+			font-size: 12px;
+			line-height: 18px;
+			margin-top: 1px;
+			display: inline-block;
+			width: 83%;
+			margin-left: 15%;
+			left: 1%;
+		}
+		#chat .line + .line { border-top: 1px dashed rgb(40,40,40); }
+	/* End Chat */
+/* End Right Bar */
+
+/* Left Bar */
+	/* Navigation Buttons */
+	.btn-right {
+		position: fixed;
+		top: 80px;
+		right: 0;
+
+		width: 48px;
+		height: 50px;
+
+		line-height: 50px;
+		text-align: left;
+		transition: width 0.2s ease;
+		background: rgba(120,120,120,0.2);
+		color: white;
+		border-left: 4px solid gold;
+	}
+
+	.btn-right + .btn-right { margin-top: 60px; border-left-color: silver;}
+	.btn-right + .btn-right:hover { width: 200px; }
+	.btn-right:hover {
+		width: 160px;
+	}
+
+	.btn-right p {
+		display: inline-block;
+		opacity: 0;
+		line-height: 3px;
+
+		font-size: 24px;
+		margin-left: 10px;
+		transition: opacity 0.2s ease-in;
+		transition: opacity 0.1s ease-out;
+	}
+
+	.btn-right:hover p {
+		opacity: 1;
+	}
+
+	.btn-right i {
+		position: absolute;
+		display: inline;
+		top: 8px;
+		right: 8px;
+	}
+	/* End Navigation Buttons */
+/* End Left Bar */
+
+
+/* Popup Bar */
+	#popup-container {
+		position: fixed;
+		background: rgba(60,60,60,0.4);
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	.popup {
+		position: fixed;
+		width: 400px;
+		height: 200px;
+		background: rgb(30,30,30);
+		color: white;
+		border: 1px solid gold;
+		border-radius: 2px;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		margin: auto;
+		z-index: 1;
+	}
+	.popup .fa-close {
+		position: absolute;
+		top: 3px;
+		right: 3px;
+		color: rgb(180,60,60);
+		text-decoration: none;
+	}
+	.popup .fa-close:hover { color: rgb(180,80,80); }
+
+	/* Settings Popup */
+		#profile-popup {
+			height: 500px;
+		}
+		#profile-popup h2 {
+			text-align: center;
+		}
+
+		#profile-popup .name {
+			margin-left: 10px;
+		}
+		#profile-popup .name input[type="text"] {
+			border: 1px solid gold;
+			border: 1px solid gold;
+			background: rgb(20,20,20);
+			color: white;
+			width: 285px;
+			height: 20px;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		#profile-popup .name input[type="submit"] {
+			border: 1px solid gold;
+			border-radius: 2px;
+			background: rgb(20,20,20);
+			color: gold;
+			width: 95px;
+			height: 20px;
+			margin-left: -1px;
+			border-bottom-left-radius: 0;
+			border-top-left-radius: 0;
+		}
+		#profile-popup .pp {
+			margin-left: 10px;
+			margin-top: 30px;
+		}
+		#profile-popup .pp .picture {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			border: 2px solid gold;
+			border-radius: 2px;
+		}
+		#profile-popup .pp .description {
+			position: absolute;
+			margin-left: 120px;
+			width: 260px;
+		}
+
+		#profile-popup .bio {
+			position: absolute;
+			margin-left: 10px;
+			margin-top: 150px;
+		}
+		#profile-popup .bio textarea {
+			width: 380px;
+			max-width: 380px;
+			max-height: 75px;
+			height: 75px;
+			background: rgb(20,20,20);
+			color: white;
+			border: 2px solid gold;
+			border-radius: 2px;
+		}
+	/* End Settings Popup */
+	
+	/* Donate Popup */
+		#donate-popup {
+			height: 350px;
+		}
+		#donate-popup h2{
+			text-align: center;
+		}
+		#donate-popup p {
+			width: 380px;
+			margin-left: 10px;
+			font-size: 13px;
+		}
+		#donate-popup button {
+			background: rgb(70,70,70);
+			color: gold;
+			border: 1px solid gold;
+			border-radius: 2px;
+		}
+	/* End Donate Popup */
+/* End Popup Bar */
+
+
+
+
+
+/* Index Page Styles */
+
+	#i_container {
+		position: absolute;
+		min-width: 600px;
+		width: 80%;
+		min-height: calc(100% - 80px);
+		top: 60px;
+		left: 10%;
+	}
+
+	#i_container .login-bar {
+		position: absolute;
+		width: 200px;
+		height: 600px;
+		left: 0;
+		top: 20px;
+		background: rgb(20,20,20);
+		border: 1px solid gold;
+		border-radius: 2px;
+	}
+	#i_container .login-bar h1 { text-align: center; color: gold; font-size: 18px; }
+	#i_container .login-bar h2 { text-align: center; color: white; font-size: 16px; }
+	#i_container .login-bar h3 { text-align: center; color: white; font-size: 14px; }
+
+	#i_container .login-bar .character {
+		position: relative;
+		width: 180px;
+		height: 50px;
+		margin-left: 10px;
+		background: rgb(10,10,10);
+		border: 1px solid gold;
+		border-radius: 2px;
+	}
+	#i_container .login-bar form .play {
+		width: 160px;
+		background: rgb(70,70,70);
+		color: gold;
+		border: 1px solid gold;
+		border-radius: 2px;
+		font-size: 24px;
+		font-family: 'Eagle Lake', cursive;
+		cursor: pointer;
+	}
+	#i_container .login-bar form .logout {
+		background: rgb(70,70,70);
+		color: gold;
+		border: 1px solid gold;
+		border-radius: 2px;
+		font-size: 12px;
+		font-family: 'Eagle Lake', cursive;
+		cursor: pointer;
+	}
+	.login-bar form { text-align: center; }
+	.login-bar form input { width: 80%; }
+	.login-bar .er {
+		max-width: 160px;
+		margin-left: 20px;
+		color: red;
+		font-size: 9px;
+		text-align: center;
+	}
+/* End Index Page Styles */
+
+
+
